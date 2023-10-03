@@ -12,41 +12,6 @@
 
     <script>
 
-        let choices = ["rock", "paper", "scissors"];
-
-        const playerChoice = prompt("Do you choose Rock, Paper or Scissors?").toLocaleLowerCase();
-        if (playerChoice === "paper" || playerChoice === "rock" || playerChoice === "scissors") {
-            console.log("You chose " + playerChoice);
-        } else {
-            console.log("Error. Please try again.");
-        }
-
-        const getComputerChoice = choices[Math.floor(Math.random() * 3)];
-        console.log("Computer chose" + ` ${getComputerChoice}`);
-
-
-        function declareWinner(getComputerChoice, playerChoice) {
-            if ((getComputerChoice === "rock") && (playerChoice === "paper")) {
-                console.log("You win! Paper beats rock.");
-            } else if ((getComputerChoice === "paper") && (playerChoice === "scissors")) {
-                console.log("You win! Scissors beat paper.");
-            } else if ((getComputerChoice === "scissors") && (playerChoice === "rock")) {
-                console.log("You win! Rock beats scissors.");
-            } else if ((getComputerChoice === "rock") && (playerChoice === "scissors")) {
-                console.log("You lose. Rock beats scissors.");
-            } else if ((getComputerChoice === "scissors") && (playerChoice === "paper")) {
-                console.log("You lose. Scissors beat paper.");
-            } else if ((getComputerChoice === "paper") && (playerChoice === "rock")) {
-                console.log("You lose. Paper beats rock.");
-            } else {
-                console.log("Its a draw!");
-            }
-        }
-
-        declareWinner();
-
-
-
     </script>
 </body>
 
