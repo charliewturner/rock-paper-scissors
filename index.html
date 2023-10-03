@@ -9,14 +9,25 @@
     
 
     <script>
-        function getComputerChoice(){
-
+        let getComputerChoice = Math.floor(Math.random() * (3 - 1 + 1) + 1); {
+            console.log(getComputerChoice);
+            if (getComputerChoice === 1){
+                getComputerChoice = "Rock";
+            } else if (getComputerChoice === 2) {
+                getComputerChoice = "Paper";
+            } else {
+                getComputerChoice = "Scissors";
+            }
         }
+
+            
+        
+
         function playRound(playerSelection, computerSelection){
 
         }
 
-        const playerSelection = ;
+        
         const computerSelection = getComputerChoice();
 
         console.log(playround(playerSelection, computerSelection));
