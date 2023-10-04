@@ -24,21 +24,28 @@
 
         const playerChoice = getPlayerChoice;
         const computerChoice = getComputerChoice;
+        const playerWins = "You win! " + playerChoice + "beats " + computerChoice;
+        const computerWins = "You lose! " + computerChoice + "beats " + playerChoice;
+        const drawnGame = "Its a tie!";
+        
 
         function playRound(computerChoice, playerChoice){
-            if ((playerChoice === rock && computerChoice === scissors)
-             || (playerChoice === paper && computerChoice === rock)
-             || (playerChoice === scissors && computerChoice === paper)){
+            if ((playerChoice === 'rock' && computerChoice === 'scissors')
+             || (playerChoice === 'paper' && computerChoice === 'rock')
+             || (playerChoice === 'scissors' && computerChoice === 'paper')){
                 return playerWins;
             } else if 
-               ((playerChoice === rock && computerChoice === paper)
-             || (playerChoice === paper && computerChoice === scissors)
-             || (playerChoice === scissors && computerChoice === rock)){
+               ((playerChoice === 'rock' && computerChoice === 'paper')
+             || (playerChoice === 'paper' && computerChoice === 'scissors')
+             || (playerChoice === 'scissors' && computerChoice === 'rock')){
                 return computerWins;
              } else {
                 return drawnGame;
              }
         }
+        let result = playRound();
+        console.log(result);
+        
     </script>
 </body>
 
