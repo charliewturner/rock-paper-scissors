@@ -15,15 +15,29 @@
         let getComputerChoice = choices[Math.floor(Math.random() * 3)];
         console.log("Computer chose " + getComputerChoice);
 
-        let playerChoice = prompt("Do you choose rock, paper or scissors?").toLocaleLowerCase()
-        if (playerChoice == 'rock' || playerChoice == 'scissors' || playerChoice == 'paper') {
-            console.log("You chose " + playerChoice);
+        let getPlayerChoice = prompt("Do you choose rock, paper or scissors?").toLocaleLowerCase()
+        if (getPlayerChoice == 'rock' || getPlayerChoice == 'scissors' || getPlayerChoice == 'paper') {
+            console.log("You chose " + getPlayerChoice);
         } else {
             console.log("Error, please try again");
         }
 
-        function playRound(getComputerChoice, playerChoice){
+        const playerChoice = getPlayerChoice;
+        const computerChoice = getComputerChoice;
 
+        function playRound(computerChoice, playerChoice){
+            if ((playerChoice === rock && computerChoice === scissors)
+             || (playerChoice === paper && computerChoice === rock)
+             || (playerChoice === scissors && computerChoice === paper)){
+                return playerWins;
+            } else if 
+               ((playerChoice === rock && computerChoice === paper)
+             || (playerChoice === paper && computerChoice === scissors)
+             || (playerChoice === scissors && computerChoice === rock)){
+                return computerWins;
+             } else {
+                return drawnGame;
+             }
         }
     </script>
 </body>
