@@ -15,8 +15,6 @@
 
         for (gamesPlayed = 0; gamesPlayed < 6; gamesPlayed++) {
 
-
-
             let getPlayerChoice = prompt("Do you choose rock, paper or scissors?").toLocaleLowerCase()
             if (getPlayerChoice == 'rock' || getPlayerChoice == 'scissors' || getPlayerChoice == 'paper') {
                 console.log("You chose " + getPlayerChoice);
@@ -27,7 +25,7 @@
             const choices = ["rock", "paper", "scissors"];
             let getComputerChoice = choices[Math.floor(Math.random() * 3)];
             console.log("Computer chose " + getComputerChoice);
-            
+
             const playerChoice = getPlayerChoice;
             const computerChoice = getComputerChoice;
             const playerWins = "You win! " + playerChoice + " beats " + computerChoice;
@@ -44,18 +42,18 @@
                     || (playerChoice === 'paper' && computerChoice === 'rock')
                     || (playerChoice === 'scissors' && computerChoice === 'paper')) {
                     return playerWins;
-                    playerWinCount++;
+                    playerWinCount ++;
 
                 } else if
                     ((playerChoice === 'rock' && computerChoice === 'paper')
                     || (playerChoice === 'paper' && computerChoice === 'scissors')
                     || (playerChoice === 'scissors' && computerChoice === 'rock')) {
                     return computerWins;
-                    computerWinCount++;
+                    computerWinCount ++;
 
                 } else {
                     return drawnGame;
-                    drawnGameCount++;
+                    drawnGameCount ++;
 
                 }
             }
@@ -66,14 +64,13 @@
             console.log("The computer has won " + computerWinCount + " round(s).")
         }
 
-        if (gamesplayed >= 5) {
-            if (playerWinCount > computerWinCount) {
-                console.log("You won by " + playerWinCount + " rounds to " + computerWinCount + "!");
-            } else if (playerWinCount < computerWinCount) {
-                console.log("You lost by " + computerWinCount + " rounds to " + playerWinCount + ".");
-            } else {
-                console.log("Its a tie!");
-            }
+
+        if (playerWinCount > computerWinCount) {
+            console.log("You won by " + playerWinCount + " rounds to " + computerWinCount + "!");
+        } else if (playerWinCount < computerWinCount) {
+            console.log("You lost by " + computerWinCount + " rounds to " + playerWinCount + ".");
+        } else {
+            console.log("Its a tie!");
         }
 
 
