@@ -15,14 +15,16 @@
         let getComputerChoice = choices[Math.floor(Math.random() * 3)];
         console.log("Computer chose " + getComputerChoice);
 
-        let playerChoice = prompt("Do you choose rock, paper or scissors?")
+        let playerChoice = prompt("Do you choose rock, paper or scissors?").toLocaleLowerCase()
         if (playerChoice == 'rock' || playerChoice == 'scissors' || playerChoice == 'paper') {
             console.log("You chose " + playerChoice);
         } else {
             console.log("Error, please try again");
         }
 
+        function playRound(getComputerChoice, playerChoice){
 
+        }
     </script>
 </body>
 
