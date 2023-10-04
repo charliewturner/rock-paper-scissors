@@ -27,6 +27,7 @@
         const playerWins = "You win! " + playerChoice + " beats " + computerChoice;
         const computerWins = "You lose! " + computerChoice + " beats " + playerChoice;
         const drawnGame = "Its a tie!";
+        let gamesPlayed = 0;
 
 
         function playRound() {
@@ -41,6 +42,8 @@
                 return computerWins;
             } else {
                 return drawnGame;
+                gamesPlayed ++;
+                console.log(gamesPlayed);
             }
         }
 
