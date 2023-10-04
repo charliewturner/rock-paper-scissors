@@ -11,50 +11,56 @@
 
 
     <script>
-        const choices = ["rock", "paper", "scissors"];
-        let getComputerChoice = choices[Math.floor(Math.random() * 3)];
-        console.log("Computer chose " + getComputerChoice);
 
-        let getPlayerChoice = prompt("Do you choose rock, paper or scissors?").toLocaleLowerCase()
-        if (getPlayerChoice == 'rock' || getPlayerChoice == 'scissors' || getPlayerChoice == 'paper') {
-            console.log("You chose " + getPlayerChoice);
-        } else {
-            console.log("Error, please try again");
-        }
-
-        const playerChoice = getPlayerChoice;
-        const computerChoice = getComputerChoice;
-        const playerWins = "You win! " + playerChoice + " beats " + computerChoice;
-        const computerWins = "You lose! " + computerChoice + " beats " + playerChoice;
-        const drawnGame = "Its a tie!";
-
-        let playerWinCount = 0;
-        let computerWinCount = 0;
-        let drawnGameCount = 0;
-
-
-        function playRound() {
-            if ((playerChoice === 'rock' && computerChoice === 'scissors')
-                || (playerChoice === 'paper' && computerChoice === 'rock')
-                || (playerChoice === 'scissors' && computerChoice === 'paper')) {
-                return playerWins;
-                playerWinCount++;
-
-            } else if
-                ((playerChoice === 'rock' && computerChoice === 'paper')
-                || (playerChoice === 'paper' && computerChoice === 'scissors')
-                || (playerChoice === 'scissors' && computerChoice === 'rock')) {
-                return computerWins;
-                computerWinCount++;
-
-            } else {
-                return drawnGame;
-                drawnGameCount++;
-
-            }
-        }
 
         for (gamesPlayed = 0; gamesPlayed < 6; gamesPlayed++) {
+
+
+
+            let getPlayerChoice = prompt("Do you choose rock, paper or scissors?").toLocaleLowerCase()
+            if (getPlayerChoice == 'rock' || getPlayerChoice == 'scissors' || getPlayerChoice == 'paper') {
+                console.log("You chose " + getPlayerChoice);
+            } else {
+                console.log("Error, please try again");
+            }
+
+            const choices = ["rock", "paper", "scissors"];
+            let getComputerChoice = choices[Math.floor(Math.random() * 3)];
+            console.log("Computer chose " + getComputerChoice);
+            
+            const playerChoice = getPlayerChoice;
+            const computerChoice = getComputerChoice;
+            const playerWins = "You win! " + playerChoice + " beats " + computerChoice;
+            const computerWins = "You lose! " + computerChoice + " beats " + playerChoice;
+            const drawnGame = "Its a tie!";
+
+            let playerWinCount = 0;
+            let computerWinCount = 0;
+            let drawnGameCount = 0;
+
+
+            function playRound() {
+                if ((playerChoice === 'rock' && computerChoice === 'scissors')
+                    || (playerChoice === 'paper' && computerChoice === 'rock')
+                    || (playerChoice === 'scissors' && computerChoice === 'paper')) {
+                    return playerWins;
+                    playerWinCount++;
+
+                } else if
+                    ((playerChoice === 'rock' && computerChoice === 'paper')
+                    || (playerChoice === 'paper' && computerChoice === 'scissors')
+                    || (playerChoice === 'scissors' && computerChoice === 'rock')) {
+                    return computerWins;
+                    computerWinCount++;
+
+                } else {
+                    return drawnGame;
+                    drawnGameCount++;
+
+                }
+            }
+
+
             console.log(playRound());
             console.log("You have won " + playerWinCount + " round(s).");
             console.log("The computer has won " + computerWinCount + " round(s).")
