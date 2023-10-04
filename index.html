@@ -27,9 +27,10 @@
         const playerWins = "You win! " + playerChoice + " beats " + computerChoice;
         const computerWins = "You lose! " + computerChoice + " beats " + playerChoice;
         const drawnGame = "Its a tie!";
-        let gamesPlayed = 0;
+
         let playerWinCount = 0;
         let computerWinCount = 0;
+        let drawnGameCount = 0;
 
 
         function playRound() {
@@ -37,32 +38,39 @@
                 || (playerChoice === 'paper' && computerChoice === 'rock')
                 || (playerChoice === 'scissors' && computerChoice === 'paper')) {
                 return playerWins;
-                playerWinCount ++;
+                playerWinCount++;
+
             } else if
                 ((playerChoice === 'rock' && computerChoice === 'paper')
                 || (playerChoice === 'paper' && computerChoice === 'scissors')
                 || (playerChoice === 'scissors' && computerChoice === 'rock')) {
                 return computerWins;
-                computerWinCount ++;
+                computerWinCount++;
+
             } else {
                 return drawnGame;
-                gamesPlayed ++;
-                console.log(gamesPlayed + " games played.");
+                drawnGameCount++;
+
             }
         }
 
-        while (gamesPlayed < 6) {
+        for (gamesPlayed = 0; gamesPlayed < 6; gamesPlayed++) {
             console.log(playRound());
             console.log("You have won " + playerWinCount + " round(s).");
             console.log("The computer has won " + computerWinCount + " round(s).")
-        } 
+        }
+
         if (gamesplayed >= 5) {
             if (playerWinCount > computerWinCount) {
                 console.log("You won by " + playerWinCount + " rounds to " + computerWinCount + "!");
+            } else if (playerWinCount < computerWinCount) {
+                console.log("You lost by " + computerWinCount + " rounds to " + playerWinCount + ".");
+            } else {
+                console.log("Its a tie!");
             }
         }
 
-        
+
 
     </script>
 </body>
