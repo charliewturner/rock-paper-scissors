@@ -11,6 +11,17 @@
 
 
     <script>
+        const choices = ["rock", "paper", "scissors"];
+        let getComputerChoice = choices[Math.floor(Math.random() * 3)];
+        console.log("Computer chose " + getComputerChoice);
+
+        let playerChoice = prompt("Do you choose rock, paper or scissors?")
+        if (playerChoice == 'rock' || playerChoice == 'scissors' || playerChoice == 'paper') {
+            console.log("You chose " + playerChoice);
+        } else {
+            console.log("Error, please try again");
+        }
+
 
     </script>
 </body>
