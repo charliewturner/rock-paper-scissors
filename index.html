@@ -8,11 +8,21 @@
 </head>
 
 <body>
-    <div id="playerSelection">
+    <div id="playerSelection" style="margin-bottom: 30px;">
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
         <button id="scissors">Scissors</button>
     </div>
+
+    <div id="scoreboard">Scoreboard
+
+        <p id="playerScore"></p>
+        <p id="computerScore"></p>
+        <p id="winMessage"></p>
+
+    </div>
+
+
     <script>
 
         let playerWinCount = 0;
@@ -24,6 +34,9 @@
         const paperButton = document.querySelector("#paper");
         const scissorsButton = document.querySelector("#scissors");
         const playerSelection = document.querySelector("#playerSelection");
+        const playerScore = document.querySelector("#playerScore");
+        const computerScore = document.querySelector("#computerScore");
+        const winMessage = document.querySelector('#winMessage');
 
         rockButton.addEventListener('click', () => {
             getPlayerChoice = "rock";
@@ -46,14 +59,7 @@
             console.log(tallyScore());
         });
 
-        /*for (gamesPlayed = 0; gamesPlayed < 6; gamesPlayed++) {
 
-            let getPlayerChoice = prompt("Do you choose rock, paper or scissors?").toLocaleLowerCase()
-            if (getPlayerChoice == 'rock' || getPlayerChoice == 'scissors' || getPlayerChoice == 'paper') {
-                console.log("You chose " + getPlayerChoice);
-            } else {
-                console.log("Error, please try again");
-            }*/
         function playRound() {
             const choices = ["rock", "paper", "scissors"];
             let getComputerChoice = choices[Math.floor(Math.random() * 3)];
@@ -83,22 +89,24 @@
                 drawnGameCount++;
                 return drawnGame;
             }
+
         }
 
         function tallyScore() {
-            console.log("You have won " + playerWinCount + " round(s).");
-            console.log("The computer has won " + computerWinCount + " round(s).")
-        };
-        // }
+            computerScore.textContent = "Computer score: " + computerWinCount;
+            playerScore.textContent = "Player score: " + playerWinCount
 
-        ;
-        /*if (playerWinCount > computerWinCount) {
-            console.log("You won by " + playerWinCount + " rounds to " + computerWinCount + "!");
-        } else if (playerWinCount < computerWinCount) {
-            console.log("You lost by " + computerWinCount + " rounds to " + playerWinCount + ".");
-        } else {
-            console.log("Its a tie!");
-        }*/
+            if (playerWinCount === 5 || computerWinCount === 5) {
+                if (playerWinCount > computerWinCount) {
+                    winMessage.textContent = "Well done, you win!";
+                } else {
+                    winMessage.textContent = "You lose! Better luck next time!";
+                }
+            }
+
+
+        };
+
 
     </script>
 </body>
