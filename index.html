@@ -8,25 +8,53 @@
 </head>
 
 <body>
-    <button id = "rock">Rock</button>
-    <button id = "paper">Paper</button>
-    <button id = "scissors">Scissors</button>
-
+    <div id="playerSelection">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
     <script>
 
         let playerWinCount = 0;
         let computerWinCount = 0;
         let drawnGameCount = 0;
+        let getPlayerChoice;
 
-        for (gamesPlayed = 0; gamesPlayed < 6; gamesPlayed++) {
+        const rockButton = document.querySelector("#rock");
+        const paperButton = document.querySelector("#paper");
+        const scissorsButton = document.querySelector("#scissors");
+        const playerSelection = document.querySelector("#playerSelection");
 
-            //let getPlayerChoice = prompt("Do you choose rock, paper or scissors?").toLocaleLowerCase()
+        rockButton.addEventListener('click', () => {
+            getPlayerChoice = "rock";
+            console.log("You chose " + getPlayerChoice);
+            console.log(playRound());
+            console.log(tallyScore());
+        });
+
+        paperButton.addEventListener('click', () => {
+            getPlayerChoice = "paper";
+            console.log("You chose " + getPlayerChoice);
+            console.log(playRound());
+            console.log(tallyScore());
+        });
+
+        scissorsButton.addEventListener('click', () => {
+            getPlayerChoice = "scissors";
+            console.log("You chose " + getPlayerChoice);
+            console.log(playRound());
+            console.log(tallyScore());
+        });
+
+        /*for (gamesPlayed = 0; gamesPlayed < 6; gamesPlayed++) {
+
+            let getPlayerChoice = prompt("Do you choose rock, paper or scissors?").toLocaleLowerCase()
             if (getPlayerChoice == 'rock' || getPlayerChoice == 'scissors' || getPlayerChoice == 'paper') {
                 console.log("You chose " + getPlayerChoice);
             } else {
                 console.log("Error, please try again");
-            }
-
+            }*/
+        function playRound() {
             const choices = ["rock", "paper", "scissors"];
             let getComputerChoice = choices[Math.floor(Math.random() * 3)];
             console.log("Computer chose " + getComputerChoice);
@@ -37,30 +65,33 @@
             const computerWins = "You lose! " + computerChoice + " beats " + playerChoice;
             const drawnGame = "Its a tie!";
 
-            function playRound() {
-                if ((playerChoice === 'rock' && computerChoice === 'scissors')
-                    || (playerChoice === 'paper' && computerChoice === 'rock')
-                    || (playerChoice === 'scissors' && computerChoice === 'paper')) {
-                    playerWinCount++;
-                    return playerWins;
 
-                } else if
-                    ((playerChoice === 'rock' && computerChoice === 'paper')
-                    || (playerChoice === 'paper' && computerChoice === 'scissors')
-                    || (playerChoice === 'scissors' && computerChoice === 'rock')) {
-                    computerWinCount++;
-                    return computerWins;
+            if ((playerChoice === 'rock' && computerChoice === 'scissors')
+                || (playerChoice === 'paper' && computerChoice === 'rock')
+                || (playerChoice === 'scissors' && computerChoice === 'paper')) {
+                playerWinCount++;
+                return playerWins;
 
-                } else {
-                    drawnGameCount++;
-                    return drawnGame;
-                }
+            } else if
+                ((playerChoice === 'rock' && computerChoice === 'paper')
+                || (playerChoice === 'paper' && computerChoice === 'scissors')
+                || (playerChoice === 'scissors' && computerChoice === 'rock')) {
+                computerWinCount++;
+                return computerWins;
+
+            } else {
+                drawnGameCount++;
+                return drawnGame;
             }
-            console.log(playRound());
-            console.log("You have won " + playerWinCount + " round(s).");
-            console.log("The computer has won " + computerWinCount + " round(s).")
         }
 
+        function tallyScore() {
+            console.log("You have won " + playerWinCount + " round(s).");
+            console.log("The computer has won " + computerWinCount + " round(s).")
+        };
+        // }
+
+        ;
         /*if (playerWinCount > computerWinCount) {
             console.log("You won by " + playerWinCount + " rounds to " + computerWinCount + "!");
         } else if (playerWinCount < computerWinCount) {
